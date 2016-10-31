@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
     google_timezone = GoogleTimezone.fetch(res.latitude, res.longitude)
     timezone = TZInfo::Timezone.get(google_timezone.time_zone_id)
 
-    render json: {'message': "#{timezone.name}: #{timezone.now}"}
+    render json: {'timezone': "#{timezone.name}"}
   end
 
 end
