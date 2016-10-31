@@ -23,6 +23,9 @@ gem 'puma', '~> 3.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  # Pretty print your Ruby objects with style -- in full color and with proper indentation
+  gem 'awesome_print'
 end
 
 group :development do
@@ -34,3 +37,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Geokit gem provides geocoding and distance/heading calculations
+gem 'geokit'
+
+# Ruby gem to get timezone info by known position(latitude, longitude) using google timezone api
+gem 'google_timezone'
