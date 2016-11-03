@@ -6,6 +6,11 @@ class LocationsController < ApplicationController
     google_timezone = GoogleTimezone.fetch(res.latitude, res.longitude)
     timezone = TZInfo::Timezone.get(google_timezone.time_zone_id)
 
-    render json: { timezone: timezone.name.to_s }
+    result = {
+      timezone: timezone.name.to_s,
+      offset: timezone.current_period.utc_offset / 3600
+    }
+
+    render json: result
   end
 end
