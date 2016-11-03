@@ -1,8 +1,12 @@
+sudo: false
+cache: bundler
 language: ruby
 rvm:
  - 2.3.0
-script: bundle exec rails test
 services:
   - postgresql
 before_script:
   - psql -c 'create database general_tools_api_test;' -U postgres
+script:
+  - bundle exec rubocop -c .rubocop_todo.yml -F
+  - bundle exec rails test
