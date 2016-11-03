@@ -1,5 +1,5 @@
 class LocationsControllerTest < ActionDispatch::IntegrationTest
-  test "should get city timezone" do
+  test 'should get city timezone' do
     get '/locations/Porto'
     assert_response :success
 
