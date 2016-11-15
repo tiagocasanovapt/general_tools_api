@@ -43,7 +43,10 @@ GEM
     awesome_print (1.7.0)
     builder (3.2.2)
     byebug (9.0.6)
+    codeclimate-test-reporter (1.0.3)
+      simplecov
     concurrent-ruby (1.0.2)
+    docile (1.1.5)
     erubis (2.7.0)
     ffi (1.9.14)
     geokit (1.10.0)
@@ -51,6 +54,7 @@ GEM
       activesupport (>= 4.1.0)
     google_timezone (0.0.5)
     i18n (0.7.0)
+    json (2.0.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -110,6 +114,11 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
+    simplecov (0.12.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     spring (2.0.0)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -137,6 +146,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   byebug
+  codeclimate-test-reporter (~> 1.0.0)
   geokit
   google_timezone
   listen (~> 3.0.5)
@@ -144,6 +154,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rubocop
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
