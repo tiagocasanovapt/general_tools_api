@@ -1,6 +1,6 @@
 # Controller to return a timezone based on different locations
-class LocationsController < ApplicationController
-  # GET /locations/:city
+class TimezonesController < ApplicationController
+  # GET /timezones/:city
   def city
     res = Geokit::Geocoders::GoogleGeocoder.geocode(params[:city] || '')
     google_timezone = GoogleTimezone.fetch(res.latitude, res.longitude)
