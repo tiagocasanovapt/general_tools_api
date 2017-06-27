@@ -1,5 +1,35 @@
 # Controller to return a timezone based on different locations
 class TimezonesController < ApplicationController
+
+  swagger_path '/timezones/city/{city}' do
+    operation :get do
+      key :description, 'Returns a single timezone for the city'
+      key :operationId, 'findTimezoneByCity'
+      key :tags, [
+        'city'
+      ]
+      parameter do
+        key :name, :city
+        key :in, :path
+        key :description, 'Name of city to fetch'
+        key :required, true
+        key :type, :string
+      end
+      response 200 do
+        key :description, 'city response'
+        schema do
+          key :'$ref', :Timezone
+        end
+      end
+      response :default do
+        key :description, 'unexpected error'
+        schema do
+          key :'$ref', :ErrorModel
+        end
+      end
+    end
+  end
+
   # GET /timezones/city/:city
   def city
     res = Geokit::Geocoders::GoogleGeocoder.geocode(params[:city] || '')

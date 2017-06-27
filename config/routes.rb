@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   get '/timezones/city/:city', to: 'timezones#city'
   get '/timezones/country/:country', to: 'timezones#country'
+
+  resources :apidocs, only: [:index]
 end

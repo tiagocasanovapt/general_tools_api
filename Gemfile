@@ -50,3 +50,6 @@ gem 'geokit'
 
 # Ruby gem to get timezone info by known position(latitude, longitude) using google timezone api
 gem 'google_timezone'
+
+# Swagger API
+gem 'swagger-blocks'
