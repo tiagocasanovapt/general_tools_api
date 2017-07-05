@@ -23,7 +23,7 @@ class ApidocsController < ApplicationController
         key :url, 'https://swagger.io'
       end
     end
-    key :host, 'petstore.swagger.wordnik.com'
+    key :host, 'https://general-tools-api.herokuapp.com/'
     key :basePath, '/v1'
     key :consumes, ['application/json']
     key :produces, ['application/json']
@@ -32,8 +32,6 @@ class ApidocsController < ApplicationController
   # A list of all classes that have swagger_* declarations.
   SWAGGERED_CLASSES = [
     TimezonesController,
-    PetsController,
-    Pet,
     ErrorModel,
     self,
   ].freeze
