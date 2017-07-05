@@ -1,8 +1,9 @@
-class ErrorModel  # Notice, this is just a plain ruby object.
+# Generic Swagger error class
+class ErrorModel
   include Swagger::Blocks
 
   swagger_schema :ErrorModel do
-    key :required, [:code, :message]
+    key :required, %i[code message]
     property :code do
       key :type, :integer
       key :format, :int32

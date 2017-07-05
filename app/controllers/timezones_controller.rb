@@ -1,12 +1,11 @@
 # Controller to return a timezone based on different locations
 class TimezonesController < ApplicationController
-
   swagger_path '/timezones/city/{city}' do
     operation :get do
       key :description, 'Returns a single timezone for the city'
       key :operationId, 'findTimezoneByCity'
       key :tags, [
-        'city'
+        'Timezones'
       ]
       parameter do
         key :name, :city
@@ -18,7 +17,7 @@ class TimezonesController < ApplicationController
       response 200 do
         key :description, 'City response'
         schema do
-          key :'$ref', :Timezone
+          key :'$ref', :TimezoneModel
         end
       end
       response :default do

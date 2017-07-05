@@ -1,3 +1,4 @@
+# Swagger docs controller for root
 class ApidocsController < ApplicationController
   swagger_root do
     key :swagger, '2.0'
@@ -18,13 +19,9 @@ class ApidocsController < ApplicationController
     tag do
       key :name, 'timezones'
       key :description, 'Timezones operations'
-      externalDocs do
-        key :description, 'Find more info here'
-        key :url, 'https://swagger.io'
-      end
     end
-    key :host, 'https://general-tools-api.herokuapp.com/'
-    key :basePath, '/v1'
+    key :host, 'general-tools-api.herokuapp.com'
+    # key :basePath, '/v1'
     key :consumes, ['application/json']
     key :produces, ['application/json']
   end
@@ -32,8 +29,9 @@ class ApidocsController < ApplicationController
   # A list of all classes that have swagger_* declarations.
   SWAGGERED_CLASSES = [
     TimezonesController,
+    TimezoneModel,
     ErrorModel,
-    self,
+    self
   ].freeze
 
   def index
