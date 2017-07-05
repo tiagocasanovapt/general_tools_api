@@ -4,9 +4,7 @@ class TimezonesController < ApplicationController
     operation :get do
       key :description, 'Returns a single timezone for the city'
       key :operationId, 'findTimezoneByCity'
-      key :tags, [
-        'Timezones'
-      ]
+      key :tags, ['Timezones']
       parameter do
         key :name, :city
         key :in, :path
