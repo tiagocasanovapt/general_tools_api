@@ -16,13 +16,13 @@ class TimezonesController < ApplicationController
         key :type, :string
       end
       response 200 do
-        key :description, 'city response'
+        key :description, 'City response'
         schema do
           key :'$ref', :Timezone
         end
       end
       response :default do
-        key :description, 'unexpected error'
+        key :description, 'Unexpected error'
         schema do
           key :'$ref', :ErrorModel
         end
