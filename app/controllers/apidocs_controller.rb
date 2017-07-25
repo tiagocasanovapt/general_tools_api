@@ -7,7 +7,6 @@ class ApidocsController < ApplicationController
       key :title, 'General Tools API'
       key :description, 'A sample API with a multitude of features ' \
                         'explained in the swagger-2.0 specification'
-      key :termsOfService, 'http://helloreverb.com/terms/'
       contact do
         key :name, 'Tiago Casanova'
       end
@@ -21,14 +20,14 @@ class ApidocsController < ApplicationController
       key :description, 'Timezones operations'
     end
     key :host, 'general-tools-api.herokuapp.com'
-    # key :basePath, '/v1'
+    key :basePath, '/v1'
     key :consumes, ['application/json']
     key :produces, ['application/json']
   end
 
   # A list of all classes that have swagger_* declarations.
   SWAGGERED_CLASSES = [
-    TimezonesController,
+    V1::TimezonesController,
     TimezoneModel,
     ErrorModel,
     self
