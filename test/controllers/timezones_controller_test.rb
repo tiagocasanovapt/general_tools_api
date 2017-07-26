@@ -1,6 +1,6 @@
 class TimezonesControllerTest < ActionDispatch::IntegrationTest
   test 'should get city timezone' do
-    get '/timezones/city/Porto'
+    get '/v1/timezones/city/Porto'
     assert_response :success
 
     assert_not_nil(response.body)
@@ -10,7 +10,7 @@ class TimezonesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get Portugal timezones' do
-    get '/timezones/country/Portugal'
+    get '/v1/timezones/country/Portugal'
     assert_response :success
 
     assert_not_nil(response.body)
@@ -23,7 +23,7 @@ class TimezonesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get PT timezones' do
-    get '/timezones/country/PT'
+    get '/v1/timezones/country/PT'
     assert_response :success
 
     assert_not_nil(response.body)
@@ -36,7 +36,7 @@ class TimezonesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should fail to obtain country timezones' do
-    get '/timezones/country/Portug'
+    get '/v1/timezones/country/Portug'
     assert_response :not_found
 
     assert_not_nil(response.body)
