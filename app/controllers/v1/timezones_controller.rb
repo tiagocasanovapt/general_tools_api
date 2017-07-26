@@ -58,9 +58,7 @@ module V1
           key :description, 'Country response'
           schema do
             key :type, :array
-            items do
-              key :'$ref', :TimezoneModel
-            end
+            items { key :'$ref', :TimezoneModel }
           end
         end
         response :default do
