@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :v1 do
     get '/timezones/city/:city', to: 'timezones#city'
     get '/timezones/country/:country', to: 'timezones#country'
+    get '/timezones/gps', to: 'timezones#gps'
   end
 
   resources :apidocs, only: [:index]

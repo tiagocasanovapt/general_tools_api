@@ -82,6 +82,19 @@ module V1
       render json: timezone_countries_result(country_code)
     end
 
+    # GET /timezones/gps?:lat&:lng
+    def gps
+      google_timezone = GoogleTimezone.fetch(params[:lat].to_s, params[:lng].to_s)
+      timezone = TZInfo::Timezone.get(google_timezone.time_zone_id)
+
+      result = {
+        timezone: timezone.name.to_s,
+        offset: timezone.current_period.utc_offset / 3600
+      }
+
+      render json: result
+    end
+
     private
 
     def timezone_countries_result(country_code)
