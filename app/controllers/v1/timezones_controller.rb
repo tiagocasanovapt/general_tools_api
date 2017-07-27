@@ -1,33 +1,6 @@
 module V1
   # Controller to return a timezone based on different locations
   class TimezonesController < ApplicationController
-    swagger_path '/timezones/city/{city}' do
-      operation :get do
-        key :description, 'Returns a single timezone for the city'
-        key :operationId, 'findTimezoneByCity'
-        key :tags, ['Timezones']
-        parameter do
-          key :name, :city
-          key :in, :path
-          key :description, 'Name of city to fetch'
-          key :required, true
-          key :type, :string
-        end
-        response 200 do
-          key :description, 'City response'
-          schema do
-            key :'$ref', :TimezoneModel
-          end
-        end
-        response :default do
-          key :description, 'Unexpected error'
-          schema do
-            key :'$ref', :ErrorModel
-          end
-        end
-      end
-    end
-
     # GET /timezones/city/:city
     def city
       res = Geokit::Geocoders::GoogleGeocoder.geocode(params[:city] || '')
@@ -42,34 +15,6 @@ module V1
       render json: result
     end
 
-    swagger_path '/timezones/country/{country}' do
-      operation :get do
-        key :description, 'Returns all timezones for a country'
-        key :operationId, 'findTimezoneBycountry'
-        key :tags, ['Timezones']
-        parameter do
-          key :name, :country
-          key :in, :path
-          key :description, 'Name of country to fetch'
-          key :required, true
-          key :type, :string
-        end
-        response 200 do
-          key :description, 'Country response'
-          schema do
-            key :type, :array
-            items { key :'$ref', :TimezoneModel }
-          end
-        end
-        response :default do
-          key :description, 'Unexpected error'
-          schema do
-            key :'$ref', :ErrorModel
-          end
-        end
-      end
-    end
-
     # GET /timezones/country/:country
     def country
       if valid_country_code?(params[:country])
@@ -82,45 +27,9 @@ module V1
       render json: timezone_countries_result(country_code)
     end
 
-    swagger_path '/timezones/gps' do
-      operation :get do
-        key :description, 'Returns a single timezone for the GPS coordinates'
-        key :operationId, 'findTimezoneByGPS'
-        key :tags, ['Timezones']
-        parameter do
-          key :name, :lat
-          key :in, :query
-          key :description, 'Latitude of location to fetch'
-          key :required, true
-          key :type, :integer
-          key :format, :int64
-        end
-        parameter do
-          key :name, :lng
-          key :in, :query
-          key :description, 'Longitude of location to fetch'
-          key :required, true
-          key :type, :integer
-          key :format, :int64
-        end
-        response 200 do
-          key :description, 'GPS response'
-          schema do
-            key :'$ref', :TimezoneModel
-          end
-        end
-        response :default do
-          key :description, 'Unexpected error'
-          schema do
-            key :'$ref', :ErrorModel
-          end
-        end
-      end
-    end
-
     # GET /timezones/gps?:lat&:lng
     def gps
-      google_timezone = GoogleTimezone.fetch(params[:lat].to_s, params[:lng].to_s)
+      google_timezone = GoogleTimezone.fetch(params[:lat], params[:lng])
       timezone = TZInfo::Timezone.get(google_timezone.time_zone_id)
 
       result = {
