@@ -15,5 +15,17 @@ module V1
 
       render json: Holidays.between(year_start, year_end, country_code.downcase.to_sym)
     end
+
+    # GET /holidays/remaining/:country
+    def remaining
+      if valid_country_code?(params[:country])
+        country_code = params[:country]
+      else
+        country_code = country_to_code(params[:country])
+        return render json: { error: 'Country Not Found' }.to_json, status: 404 unless country_code
+      end
+
+      render json: Holidays.year_holidays([country_code.downcase.to_sym])
+    end
   end
 end
