@@ -1,8 +1,8 @@
 module V1
   # Controller to return holidays based on different inputs
   class HolidaysController < ApplicationController
-    # GET /holidays/country/:country
-    def country
+    # GET /holidays/all/:country
+    def all
       if valid_country_code?(params[:country])
         country_code = params[:country]
       else
@@ -10,7 +10,10 @@ module V1
         return render json: { error: 'Country Not Found' }.to_json, status: 404 unless country_code
       end
 
-      render json: Holidays.on(Time.zone.today, country_code.downcase.to_sym)
+      year_start = Date.new(Time.zone.today.year, 1, 1)
+      year_end = Date.new(Time.zone.today.year, 12, 31)
+
+      render json: Holidays.between(year_start, year_end, country_code.downcase.to_sym)
     end
   end
 end
