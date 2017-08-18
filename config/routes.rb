@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     get '/timezones/city/:city', to: 'timezones#city'
     get '/timezones/country/:country', to: 'timezones#country'
     get '/timezones/gps', to: 'timezones#gps'
+
+    get 'holidays/country/:country', to: 'holidays#country'
   end
 
   resources :apidocs, only: [:index]
