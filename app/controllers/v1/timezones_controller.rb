@@ -17,12 +17,8 @@ module V1
 
     # GET /timezones/country/:country
     def country
-      if valid_country_code?(params[:country])
-        country_code = params[:country]
-      else
-        country_code = country_to_code(params[:country])
-        return render json: { error: 'Country Not Found' }.to_json, status: 404 unless country_code
-      end
+      country_code = country_param_validator(params[:country])
+      return render json: { error: 'Country Not Found' }.to_json, status: 404 unless country_code
 
       render json: timezone_countries_result(country_code)
     end
