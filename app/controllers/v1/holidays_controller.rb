@@ -1,31 +1,27 @@
 module V1
   # Controller to return holidays based on different inputs
   class HolidaysController < ApplicationController
+    # Helper Constants
+    YEAR_START = Date.new(Time.zone.today.year, 1, 1)
+    YEAR_END = Date.new(Time.zone.today.year, 12, 31)
+
     # GET /holidays/all/:country
     def all
-      if valid_country_code?(params[:country])
-        country_code = params[:country]
-      else
-        country_code = country_to_code(params[:country])
-        return render json: { error: 'Country Not Found' }.to_json, status: 404 unless country_code
-      end
+      country_code = country_param_validator(params[:country])
+      return render json: { error: 'Country Not Found' }.to_json, status: 404 unless country_code
 
-      year_start = Date.new(Time.zone.today.year, 1, 1)
-      year_end = Date.new(Time.zone.today.year, 12, 31)
-
-      render json: Holidays.between(year_start, year_end, country_code.downcase.to_sym)
+      render json: Holidays.between(YEAR_START, YEAR_END, country_code.downcase.to_sym)
     end
 
     # GET /holidays/remaining/:country
     def remaining
-      if valid_country_code?(params[:country])
-        country_code = params[:country]
-      else
-        country_code = country_to_code(params[:country])
-        return render json: { error: 'Country Not Found' }.to_json, status: 404 unless country_code
-      end
+      country_code = country_param_validator(params[:country])
+      return render json: { error: 'Country Not Found' }.to_json, status: 404 unless country_code
 
       render json: Holidays.year_holidays([country_code.downcase.to_sym])
     end
+
+    # POST /holidays/between/:country
+    def between; end
   end
 end
