@@ -22,6 +22,14 @@ module V1
     end
 
     # POST /holidays/between/:country
-    def between; end
+    def between
+      country_code = country_param_validator(params[:country])
+      return render json: { error: 'Country Not Found' }.to_json, status: 404 unless country_code
+
+      from = params[:start_date]
+      to = params[:end_date]
+
+      render json: Holidays.between(from, to, country_code.downcase.to_sym)
+    end
   end
 end
