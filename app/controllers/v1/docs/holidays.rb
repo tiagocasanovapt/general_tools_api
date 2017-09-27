@@ -10,7 +10,7 @@ module V1
           key :operationId, 'findAllHolidaysByCountry'
           key :tags, ['Holidays']
 
-          parameter(&HolidaysParams.country)
+          parameter(&Parameters::Holidays.country)
 
           response 200 do
             key :description, 'Country response'
@@ -33,7 +33,7 @@ module V1
           key :operationId, 'findRemainingHolidaysByCountry'
           key :tags, ['Holidays']
 
-          parameter(&HolidaysParams.country)
+          parameter(&Parameters::Holidays.country)
 
           response 200 do
             key :description, 'Country response'
@@ -56,9 +56,9 @@ module V1
           key :operationId, 'findHolidaysByCountryBetweenDates'
           key :tags, ['Holidays']
 
-          parameter(&HolidaysParams.country)
-          parameter(&HolidaysParams.start_date)
-          parameter(&HolidaysParams.end_date)
+          parameter(&Parameters::Holidays.country)
+          parameter(&Parameters::Holidays.start_date)
+          parameter(&Parameters::Holidays.end_date)
 
           response 200 do
             key :description, 'Country response'

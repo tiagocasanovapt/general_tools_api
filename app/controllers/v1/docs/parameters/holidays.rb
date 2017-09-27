@@ -1,8 +1,8 @@
 module V1
   module Docs
-    class Holidays
-      # Documentation for HolidaysParameters
-      class HolidaysParams
+    module Parameters
+      # Documentation for Holidays Parameters
+      class Holidays
         class << self
           def country
             proc do
