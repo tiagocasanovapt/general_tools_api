@@ -2,6 +2,10 @@
 module CountryHelpers
   extend ActiveSupport::Concern
 
+  def country_param_validator(country_param)
+    valid_country_code?(country_param) ? country_param : country_to_code(country_param)
+  end
+
   def valid_country_code?(country_code)
     return false unless country_code
     TZInfo::Country.all_codes.include?(country_code)

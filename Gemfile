@@ -53,3 +53,6 @@ gem 'google_timezone'
 
 # Swagger API
 gem 'swagger-blocks'
+
+# A set of functions to deal with holidays
+gem 'holidays'

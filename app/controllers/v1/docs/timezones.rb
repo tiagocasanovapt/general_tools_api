@@ -9,9 +9,9 @@ module V1
           key :description, 'Returns a single timezone for the city'
           key :operationId, 'findTimezoneByCity'
           key :tags, ['Timezones']
-          parameter do
-            { name: :city, in: :path, description: 'Name of city to fetch', required: true, type: :string }
-          end
+
+          parameter(&Parameters::Timezones.city)
+
           response 200 do
             key :description, 'City response'
             schema do
@@ -32,9 +32,9 @@ module V1
           key :description, 'Returns all timezones for a country'
           key :operationId, 'findTimezoneBycountry'
           key :tags, ['Timezones']
-          parameter do
-            { name: :country, in: :path, description: 'Name of country to fetch', required: true, type: :string }
-          end
+
+          parameter(&Parameters::Timezones.country)
+
           response 200 do
             key :description, 'Country response'
             schema do
@@ -56,12 +56,10 @@ module V1
           key :description, 'Returns a single timezone for the GPS coordinates'
           key :operationId, 'findTimezoneByGPS'
           key :tags, ['Timezones']
-          parameter do
-            { name: :lat, in: :query, description: 'Latitude of location', required: true, type: :integer, format: :int64 }
-          end
-          parameter do
-            { name: :lng, in: :query, description: 'Longitude of location', required: true, type: :integer, format: :int64 }
-          end
+
+          parameter(&Parameters::Timezones.latitude)
+          parameter(&Parameters::Timezones.longitude)
+
           response 200 do
             key :description, 'GPS response'
             schema do

@@ -28,7 +28,9 @@ class ApidocsController < ApplicationController
   # A list of all classes that have swagger_* declarations.
   SWAGGERED_CLASSES = [
     V1::Docs::Timezones,
+    V1::Docs::Holidays,
     TimezoneModel,
+    HolidayModel,
     ErrorModel,
     self
   ].freeze

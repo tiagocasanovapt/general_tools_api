@@ -56,6 +56,7 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     google_timezone (0.0.5)
+    holidays (6.1.0)
     i18n (0.8.6)
     json (2.1.0)
     json (2.1.0-java)
@@ -170,6 +171,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   geokit
   google_timezone
+  holidays
   listen
   pg (~> 0.18)
   puma (~> 3.0)
