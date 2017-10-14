@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     get 'holidays/all/:country', to: 'holidays#all'
     get 'holidays/remaining/:country', to: 'holidays#remaining'
     post 'holidays/between/:country', to: 'holidays#between'
+
+    # Phones
+    get 'phones/country/:country', to: 'phones#country'
   end
 
   resources :apidocs, only: [:index]
