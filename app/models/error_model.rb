@@ -9,7 +9,7 @@ class ErrorModel
       key :type, :integer
       key :format, :int32
     end
-    
+
     property :message do
       key :type, :string
     end

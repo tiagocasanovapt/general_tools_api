@@ -1,3 +1,4 @@
+# Model for Timezone results
 class TimezoneModel
   include Swagger::Blocks
 
@@ -7,7 +8,7 @@ class TimezoneModel
     property :timezone do
       key :type, :string
     end
-    
+
     property :offset do
       key :type, :integer
       key :format, :int32

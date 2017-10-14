@@ -4,7 +4,6 @@ module V1
       # Documentation for Holidays Parameters
       class Holidays
         class << self
-
           def start_date
             proc do
               key :name, :start_date
@@ -26,7 +25,6 @@ module V1
               key :format, :date
             end
           end
-          
         end
       end
     end

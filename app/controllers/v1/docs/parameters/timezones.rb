@@ -4,7 +4,6 @@ module V1
       # Documentation for Timezones Parameters
       class Timezones
         class << self
-
           def city
             proc do
               key :name, :city
@@ -36,7 +35,6 @@ module V1
               key :format, :int64
             end
           end
-
         end
       end
     end

@@ -1,3 +1,4 @@
+# Model for Holiday results
 class HolidayModel
   include Swagger::Blocks
 
@@ -12,7 +13,7 @@ class HolidayModel
     property :name do
       key :type, :string
     end
-    
+
     property :regions do
       key :type, :array
       items do

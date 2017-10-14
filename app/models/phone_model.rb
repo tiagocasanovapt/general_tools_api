@@ -1,3 +1,4 @@
+# Model for Phone results
 class PhoneModel
   include Swagger::Blocks
 

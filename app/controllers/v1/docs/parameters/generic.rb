@@ -4,7 +4,6 @@ module V1
       # Documentation for Generic Parameters
       class Generic
         class << self
-
           def country
             proc do
               key :name, :country
@@ -14,7 +13,6 @@ module V1
               key :type, :string
             end
           end
-          
         end
       end
     end
