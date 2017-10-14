@@ -15,10 +15,6 @@ class ApidocsController < ApplicationController
         key :url, 'https://tldrlegal.com/license/mit-license'
       end
     end
-    tag do
-      key :name, 'timezones'
-      key :description, 'Timezones operations'
-    end
     key :host, 'general-tools-api.herokuapp.com'
     key :basePath, '/v1'
     key :consumes, ['application/json']
@@ -29,8 +25,10 @@ class ApidocsController < ApplicationController
   SWAGGERED_CLASSES = [
     V1::Docs::Timezones,
     V1::Docs::Holidays,
+    V1::Docs::Phones,
     TimezoneModel,
     HolidayModel,
+    PhoneModel,
     ErrorModel,
     self
   ].freeze

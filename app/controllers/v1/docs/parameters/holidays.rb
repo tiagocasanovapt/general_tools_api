@@ -4,15 +4,6 @@ module V1
       # Documentation for Holidays Parameters
       class Holidays
         class << self
-          def country
-            proc do
-              key :name, :country
-              key :in, :path
-              key :description, 'Name / Code of country to fetch'
-              key :required, true
-              key :type, :string
-            end
-          end
 
           def start_date
             proc do
@@ -35,6 +26,7 @@ module V1
               key :format, :date
             end
           end
+          
         end
       end
     end

@@ -33,7 +33,7 @@ module V1
           key :operationId, 'findTimezoneBycountry'
           key :tags, ['Timezones']
 
-          parameter(&Parameters::Timezones.country)
+          parameter(&Parameters::Generic.country)
 
           response 200 do
             key :description, 'Country response'

@@ -4,21 +4,12 @@ module V1
       # Documentation for Timezones Parameters
       class Timezones
         class << self
+
           def city
             proc do
               key :name, :city
               key :in, :path
               key :description, 'Name of city to fetch'
-              key :required, true
-              key :type, :string
-            end
-          end
-
-          def country
-            proc do
-              key :name, :country
-              key :in, :path
-              key :description, 'Name / Code of country to fetch'
               key :required, true
               key :type, :string
             end
@@ -45,6 +36,7 @@ module V1
               key :format, :int64
             end
           end
+
         end
       end
     end
