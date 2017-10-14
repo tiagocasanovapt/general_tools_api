@@ -56,3 +56,6 @@ gem 'swagger-blocks'
 
 # A set of functions to deal with holidays
 gem 'holidays'
+
+# Useful information for every country in the ISO 3166 standard
+gem 'countries'
