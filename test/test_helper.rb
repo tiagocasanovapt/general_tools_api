@@ -1,5 +1,11 @@
 require 'simplecov'
-SimpleCov.start 'rails' do
+
+SimpleCov.start do
+  # from bin/rails
+  add_filter '/bin/'
+  add_filter { |source_file| source_file.lines.count <= 5 }
+  # from bin/rails
+
   add_filter 'app/controllers/apidocs_controller.rb'
   add_filter 'app/controllers/v1/docs'
   add_filter 'app/models'
