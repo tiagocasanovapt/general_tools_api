@@ -60,6 +60,8 @@ GEM
     geokit (1.11.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    google_currency (3.4.0)
+      money (~> 6.7)
     google_timezone (0.0.5)
     holidays (6.2.0)
     i18n (0.8.6)
@@ -181,9 +183,11 @@ DEPENDENCIES
   codeclimate-test-reporter
   countries
   geokit
+  google_currency
   google_timezone
   holidays
   listen
+  money
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.1.0)

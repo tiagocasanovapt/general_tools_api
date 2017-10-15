@@ -59,3 +59,9 @@ gem 'holidays'
 
 # Useful information for every country in the ISO 3166 standard
 gem 'countries'
+
+# A Ruby Library for dealing with money and currency conversion.
+gem 'money'
+
+# Access to the current Google Currency exchange rates.
+gem 'google_currency'
