@@ -13,7 +13,7 @@ module V1
           parameter(&Parameters::Timezones.city)
 
           response 200 do
-            key :description, 'City response'
+            key :description, 'Timezone response'
             schema do
               key :'$ref', :TimezoneModel
             end
@@ -30,13 +30,13 @@ module V1
       swagger_path '/timezones/country/{country}' do
         operation :get do
           key :description, 'Returns all timezones for a country'
-          key :operationId, 'findTimezoneBycountry'
+          key :operationId, 'findTimezoneByCountry'
           key :tags, ['Timezones']
 
           parameter(&Parameters::Generic.country)
 
           response 200 do
-            key :description, 'Country response'
+            key :description, 'Timezone response'
             schema do
               key :type, :array
               items { key :'$ref', :TimezoneModel }

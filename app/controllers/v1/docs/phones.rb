@@ -7,13 +7,13 @@ module V1
       swagger_path '/phones/country/{country}' do
         operation :get do
           key :description, 'Returns phone call prefix for a country'
-          key :operationId, 'findPhoneBycountry'
+          key :operationId, 'findPhoneByCountry'
           key :tags, ['Phones']
 
           parameter(&Parameters::Generic.country)
 
           response 200 do
-            key :description, 'Country response'
+            key :description, 'Phone response'
             schema do
               key :'$ref', :PhoneModel
             end

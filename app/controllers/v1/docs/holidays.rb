@@ -13,7 +13,7 @@ module V1
           parameter(&Parameters::Generic.country)
 
           response 200 do
-            key :description, 'Country response'
+            key :description, 'Holiday response'
             schema do
               key :'$ref', :HolidayModel
             end
@@ -36,7 +36,7 @@ module V1
           parameter(&Parameters::Generic.country)
 
           response 200 do
-            key :description, 'Country response'
+            key :description, 'Holiday response'
             schema do
               key :'$ref', :HolidayModel
             end
@@ -61,7 +61,7 @@ module V1
           parameter(&Parameters::Holidays.end_date)
 
           response 200 do
-            key :description, 'Country response'
+            key :description, 'Holiday response'
             schema do
               key :'$ref', :HolidayModel
             end
