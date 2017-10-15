@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
     # Phones
     get 'phones/country/:country', to: 'phones#country'
+
+    # Currencies
+    get 'currencies/country/:country', to: 'currencies#country'
+    get 'currencies/converter', to: 'currencies#converter'
   end
 
   resources :apidocs, only: [:index]
