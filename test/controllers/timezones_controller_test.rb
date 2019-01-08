@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TimezonesControllerTest < ActionDispatch::IntegrationTest
   test 'should get city timezone' do
-    skip("Need to update Google Maps API")
+    skip('Need to update Google Maps API')
 
     get '/v1/timezones/city/Porto'
     assert_response :success
@@ -14,7 +14,7 @@ class TimezonesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get GPS timezone' do
-    skip("Need to update Google Maps API")
+    skip('Need to update Google Maps API')
 
     get '/v1/timezones/gps?lat=41.149968&&lng=-8.610243'
     assert_response :success
@@ -26,7 +26,7 @@ class TimezonesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get Portugal timezones' do
-    skip("Need to update Google Maps API")
+    skip('Need to update Google Maps API')
 
     get '/v1/timezones/country/Portugal'
     assert_response :success
@@ -41,7 +41,7 @@ class TimezonesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get PT timezones' do
-    skip("Need to update Google Maps API")
+    skip('Need to update Google Maps API')
 
     get '/v1/timezones/country/PT'
     assert_response :success
@@ -56,8 +56,8 @@ class TimezonesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should fail to obtain country timezones' do
-    skip("Need to update Google Maps API")
-    
+    skip('Need to update Google Maps API')
+
     get '/v1/timezones/country/Portug'
     assert_response :not_found
 
