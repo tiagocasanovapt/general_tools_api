@@ -44,6 +44,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Seamlessly adds a Swagger to Rails-based API's
 gem 'rswag'
+gem 'rspec'
 
 # Geokit gem provides geocoding and distance/heading calculations
 gem 'geokit'
