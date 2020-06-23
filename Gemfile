@@ -42,4 +42,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Seamlessly adds a Swagger to Rails-based API's
 gem 'rswag'
+
+# Geokit gem provides geocoding and distance/heading calculations
+gem 'geokit'
+
+# Ruby gem to get timezone info by known position(latitude, longitude) using google timezone api
+gem 'google_timezone'
+
+# A set of functions to deal with holidays
+gem 'holidays'

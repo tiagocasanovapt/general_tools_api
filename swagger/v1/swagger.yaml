@@ -1,0 +1,157 @@
+---
+openapi: 3.0.1
+info:
+  title: General Tools API V1
+  version: v1
+paths:
+  "/v1/holidays/all/{country}":
+    get:
+      summary: Returns all the yearly holidays for a country
+      tags:
+      - Holidays
+      operationId: findAllHolidaysByCountry
+      parameters:
+      - name: country
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Holidays found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    date:
+                      type: string
+                      format: date
+                    name:
+                      type: string
+                    regions:
+                      type: array
+                      items:
+                        type: string
+            application/xml:
+              schema:
+                type: array
+                items:
+                  properties:
+                    date:
+                      type: string
+                      format: date
+                    name:
+                      type: string
+                    regions:
+                      type: array
+                      items:
+                        type: string
+        '404':
+          description: Country not found
+          content: {}
+  "/v1/holidays/remaining/{country}":
+    get:
+      summary: Returns all the remaining holidays for a country
+      tags:
+      - Holidays
+      operationId: findRemainingHolidaysByCountry
+      parameters:
+      - name: country
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Holidays found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    date:
+                      type: string
+                      format: date
+                    name:
+                      type: string
+                    regions:
+                      type: array
+                      items:
+                        type: string
+            application/xml:
+              schema:
+                type: array
+                items:
+                  properties:
+                    date:
+                      type: string
+                      format: date
+                    name:
+                      type: string
+                    regions:
+                      type: array
+                      items:
+                        type: string
+        '404':
+          description: Country not found
+          content: {}
+  "/v1/holidays/between/{country}":
+    post:
+      summary: Returns all the remaining holidays for a country
+      tags:
+      - Holidays
+      operationId: findRemainingHolidaysByCountry
+      parameters:
+      - name: country
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '404':
+          description: Country not found
+          content: {}
+  "/v1/timezones/country/{country}":
+    get:
+      summary: Returns all the remaining timezones for a country
+      tags:
+      - Timezones
+      operationId: findTimezoneByCountry
+      parameters:
+      - name: country
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Timezones found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    timezone:
+                      type: string
+                    offset:
+                      type: integer
+                      format: int32
+            application/xml:
+              schema:
+                type: array
+                items:
+                  properties:
+                    timezone:
+                      type: string
+                    offset:
+                      type: integer
+                      format: int32
+        '404':
+          description: Country not found
+          content: {}
+servers:
+- url: https://general-tools-api.herokuapp.com/
